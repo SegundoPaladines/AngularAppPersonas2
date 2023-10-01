@@ -23,11 +23,21 @@
       />
     </div>
     <div class="col">
+      <!--
+        se puede enviar la informacion directamente llamando a la funcion y pasandole
+        los inputs, o usar viewChild
+        <button
+          class="btn btn-primary"
+          type="submit"
+          (click) = 'agregarPersona(inputNombre, inputApellido)'
+        >Agregar Persona</button>
+      -->
+      <!--con view child-->
       <button
-        class="btn btn-primary"
-        type="submit"
-        (click) = 'agregarPersona(inputNombre, inputApellido)'
-      >Agregar Persona</button>
+          class="btn btn-primary"
+          type="submit"
+          (click) = 'agregarPersona()'
+        >Agregar Persona</button>
     </div>
   </div>
 </div>

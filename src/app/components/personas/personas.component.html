@@ -3,9 +3,12 @@
     <h1>{{titulo}}</h1>
   </div>
   <hr />
-  <app-formulario
-    (personaCreada)="agregarPersona($event)"
-  />
+  <!-- como se hace por servicio ya no se escuchan los eventos
+    <app-formulario
+      (personaCreada)="agregarPersona($event)"
+    />
+  -->
+  <app-formulario />
   <hr />
   <app-persona
     *ngFor="let person of personas; let i = index"
