@@ -8,7 +8,7 @@
         name="nombre"
         id="nombre"
         placeholder = "Nombre"
-        [(ngModel)] = 'inputNombre'
+        #inputNombre
       />
     </div>
     <div class="col-md-2">
@@ -19,14 +19,14 @@
         class="form-control"
         placeholder="Apellido"
         aria-describedby="helpId"
-        [(ngModel)] = 'inputApellido'
+        #inputApellido
       />
     </div>
     <div class="col">
       <button
         class="btn btn-primary"
         type="submit"
-        (click) = 'agregarPersona()'
+        (click) = 'agregarPersona(inputNombre, inputApellido)'
       >Agregar Persona</button>
     </div>
   </div>
