@@ -14,10 +14,8 @@ export class PersonasComponent{
     new Persona('Laura', 'Suarez')
   ];
 
-  inputNombre = '';
-  inputApellido = '';
-
-  agregarPersona(){
-    this.personas.push(new Persona(this.inputNombre, this.inputApellido));
+  /* el emiter está definido con objetos de tipo persona*/
+  agregarPersona(persona: Persona){
+    this.personas.push(persona);
   }
 }

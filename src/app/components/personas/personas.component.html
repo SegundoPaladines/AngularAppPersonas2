@@ -3,42 +3,13 @@
     <h1>{{titulo}}</h1>
   </div>
   <hr />
-  <div class="row">
-    <div class="col-md-2">
-      <input
-        class="form-control"
-        type="text"
-        name="nombre"
-        id="nombre"
-        placeholder = "Nombre"
-        [(ngModel)] = 'inputNombre'
-      />
-    </div>
-    <div class="col-md-2">
-      <input
-        type="text"
-        name="apellido"
-        id="apellido"
-        class="form-control"
-        placeholder="Apellido"
-        aria-describedby="helpId"
-        [(ngModel)] = 'inputApellido'
-      />
-    </div>
-    <div class="col">
-      <button
-        class="btn btn-primary"
-        type="submit"
-        (click) = 'agregarPersona()'
-      >Agregar Persona</button>
-    </div>
-  </div>
+  <app-formulario
+    (personaCreada)="agregarPersona($event)"
+  />
   <hr />
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let persona of personas let i = index">
-        {{i+1}}:  {{persona.nombre}} {{persona.apellido}}
-      </div>
-    </div>
-  </div>
+  <app-persona
+    *ngFor="let person of personas; let i = index"
+    [persona] = "person"
+    [contador] = i
+  />
 </div>
