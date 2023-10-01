@@ -1,6 +1,5 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Persona } from 'src/app/clases/persona.model';
-import { LoggingService } from '../../services/logging.service';
 import { PersonasService } from 'src/app/services/personas.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class FormularioComponent implements OnInit{
   /* declaracion del output con el event emiter que permite usar la funcion emit() para enviar la info*/
   /* personaCreada se convierte en un evento escuchable por otros componentes*/
 
-  @Output() personaCreada = new EventEmitter<Persona>();
+  //@Output() personaCreada = new EventEmitter<Persona>();
 
   /* Con viewChild */
 
@@ -22,7 +21,6 @@ export class FormularioComponent implements OnInit{
 
   //necesitamos el constructor para inyectar el servicio
   constructor(
-    private loggingService:LoggingService,
     private personasService:PersonasService
   ){}
 
@@ -32,7 +30,6 @@ export class FormularioComponent implements OnInit{
 
   agregarPersona(){
     let persona = new Persona(this.nombre.nativeElement.value, this.apellido.nativeElement.value);
-    this.loggingService.enviaMensaje("Agregando Persona: " + persona.nombre + " "+persona.apellido);
     this.personasService.agregarPersona(persona);
   }
 

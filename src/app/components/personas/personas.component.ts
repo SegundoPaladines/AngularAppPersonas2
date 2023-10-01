@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Persona } from "src/app/clases/persona.model";
-import { LoggingService } from "src/app/services/logging.service";
 import { PersonasService } from "src/app/services/personas.service";
 
 @Component({
@@ -17,9 +16,13 @@ export class PersonasComponent implements OnInit{
 
   //utilizar el servicios
   constructor(
-    private loggingService:LoggingService,
     private personasService: PersonasService
-  ){}
+  ){
+    /* recibimos el evento emitido por el servicio */
+    this.personasService.saludar.subscribe(
+      (mensaje:string) => alert(mensaje)
+    );
+  }
 
   //para poder cargar el vector del proveedor de serivios cuando se inicialice la clase
   ngOnInit(): void {
